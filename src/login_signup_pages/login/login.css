@@ -1,0 +1,22 @@
+
+
+.center{
+    width:fit-content;
+    height:auto;
+    align-content: center;
+    padding-bottom: 20px;
+    border:1px solid grey;
+    padding-left: 50px;
+    padding-right: 75px;
+    margin-left:450px;
+    background-color: rgba(0, 255, 255, 0.504);
+    margin-top: 120px;
+}
+.label{
+    font-size:30px;
+  
+
+}
+#submit{
+    align-content: center;
+}

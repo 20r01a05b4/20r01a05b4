@@ -1,0 +1,33 @@
+.signup{
+    width:fit-content;
+    height:auto;
+    align-content: center;
+    padding-bottom: 20px;
+    border:1px solid grey;
+    padding-left: 50px;
+    padding-right: 75px;
+    margin-left:350px;
+    margin-left:350px;
+    margin-left:350px;
+    margin-left:350px;
+    background-color:rgba(0, 255, 255, 0.504);
+   
+    
+}
+h1{
+    color:black;
+}
+
+label{
+    padding-left: 10px;
+    align-items:left;
+    left: 30px;
+    font-size: 25px;
+    font-style:normal;
+    
+}
+.center{
+    border:2px solid black;
+    width:auto;
+    height:100px;
+}

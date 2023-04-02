@@ -1,0 +1,18 @@
+h1{
+  color:green;
+  text-align:center;
+  padding:10px;
+  background-color: aqua;
+}
+.contanier{
+  background-color: red;
+  padding:10px;
+}
+button{
+  width:80px;
+  height:20px;
+  color: black;
+  padding:5px;
+  background-color: blanchedalmond  ;
+
+}

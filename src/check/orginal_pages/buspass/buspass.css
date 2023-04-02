@@ -1,0 +1,15 @@
+body{
+    align-content:center;
+}
+.form{
+    
+    width:fit-content;
+    height:fit-content;
+    align-content: center;
+    border:2px solid black;
+    margin-left:400px;
+    padding:30px;
+}
+label{
+    color:black
+}
