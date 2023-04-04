@@ -10,6 +10,3 @@ const Teacher = {
 };
 const app=initializeApp(Teacher);
 export default app
-
-
-
