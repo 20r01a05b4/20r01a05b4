@@ -1,0 +1,54 @@
+#body{
+    background-color: aqua;
+}
+  #add {
+        right:300px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color:grey;
+    color: white;
+    border: none;
+    margin-left:45%;
+    height:70px;
+    margin-top:20px;
+  }
+  
+  #add:hover {
+    background-color: #0062cc;
+    cursor: pointer;
+  }
+  #input1{
+    width:90%;
+    height:200px;
+    height:auto;
+    margin-left:5%;
+    margin-top:3%;
+  }
+  #save{
+    margin-left:86%;
+    border:none;
+    border-radius:5px solid;
+    color:black;
+    font-size: 25px;
+    width:80px;
+    margin-bottom:50px;
+    background-color: rgb(0, 229, 255);
+  }
+  #pdata{
+    border-radius: 4px solid black;
+  }
+  #delete{
+    margin-left:80%;
+    margin-bottom:5px;
+    border:none;
+    border-radius: 5px;
+    font-size: 23px;
+    background-color:crimson;
+  }
+
+#edit{
+  margin-bottom:5px; border:none;
+  border-radius: 5px;
+  background-color: aquamarine;
+  font-size: 23px;
+}

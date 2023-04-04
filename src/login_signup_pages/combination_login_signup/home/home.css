@@ -1,0 +1,30 @@
+.custom-nav {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .custom-nav .nav-item {
+    margin-right: 10px;
+  }
+  #signup1{
+font-size: 22px;
+color: black;
+margin-left:-700px;
+
+  }
+  #signs,#signf{
+    margin-left:-700px;
+  }
+.mr-2 ml-auto{
+    margin-left:-700px;   
+}
+#login1{
+    font-size: 22px;
+    color: black;
+    margin-left:-550px; 
+}
+#h{
+    color:black;
+    font-size: 25px;
+}

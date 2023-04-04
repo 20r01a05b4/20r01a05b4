@@ -1,6 +1,5 @@
 
-
-.center{
+.center:not(#subjects){
     width:fit-content;
     height:auto;
     align-content: center;
@@ -14,8 +13,6 @@
 }
 .label{
     font-size:30px;
-  
-
 }
 #submit{
     align-content: center;

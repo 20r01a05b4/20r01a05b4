@@ -2,12 +2,15 @@ import React from 'react'
 import { useState } from 'react'
 import "./login.css"
 import {getAuth,signInWithEmailAndPassword} from 'firebase/auth'
+//import Tsrtc from '../combination_login_signup/orginal_page_router'
 import { useNavigate } from 'react-router'
 
 import app from '../../auth/teacher'
+
+//import Navi from '../routing/rtc_route'
 import 'react-toastify/dist/ReactToastify.css';
 
-const Login=()=>{
+const LoginS=()=>{
     const navigate=useNavigate();
     const [data,setData]=useState({user:"",pass:""})
     
@@ -17,22 +20,20 @@ const Login=()=>{
 
     }
     
-    const hand=async(e)=>{
+    const hand=(e)=>{
         e.preventDefault();
-
-    
-    
     const auth=getAuth(app);
     localStorage.setItem("usertype","teacher");
-
+        
         try {
-         await signInWithEmailAndPassword(auth, data.user, data.pass).then(()=>{navigate("/facultyhome"); localStorage.setItem("user", data.user)})
-         
+          signInWithEmailAndPassword(auth   , data.user, data.pass)
+         navigate("/studenthome"); localStorage.setItem("user", data.user)
      } catch (error) {
-         alert("email or password are wrong")
+         alert("password or username are incorrect")
      }
+
 }
- return(
+    return(
         
         <div className='center'>
        
@@ -46,4 +47,4 @@ const Login=()=>{
         </div>
     )
 }
-export default Login
+export default LoginS

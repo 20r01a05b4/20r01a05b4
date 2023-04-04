@@ -1,13 +1,13 @@
 import React,{useState} from 'react';
 import '../signup.css';
-import Student from '../../../auth/auth';
-import Btn from '../../combination_login_signup/login_button';
+//import Student from '../../../auth/auth';
+import app from '../../../auth/teacher';
+import {Btn1} from '../../combination_login_signup/login_fac';
 import {createUserWithEmailAndPassword} from 'firebase/auth'
-import { initializeApp } from '@firebase/app';
 import {setDoc,doc} from 'firebase/firestore'
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
-
+import { getDatabase, ref, set } from "firebase/database";
 const SignupS=()=>{
     
     const [data,setData]=useState({
@@ -39,14 +39,19 @@ const SignupS=()=>{
        
         }
        else{
-            const con2=initializeApp(Student);
-            b=getAuth(con2)
-            const db=getFirestore(con2);
+           
+            b=getAuth(app)
+            const db=getFirestore(app);
             console.log("student is selcted")
             console.log(pass+" "+Email)
             
-       await createUserWithEmailAndPassword(b,Email,pass).then(user=>{console.log("student data is"+user.email)}).catch(err=>alert("email or password are wrong"));
-       await setDoc(doc(db,year,sem,dep,sec),{name:user,rollnumber:rollnumber}).then(()=>alert("successfully submitted")).catch((err)=>{console.log(err)})
+      await createUserWithEmailAndPassword(b,Email,pass).then(user=>{console.log("student data is"+user.email)}).catch(err=>alert("email or password are wrong"));
+      await setDoc(doc(db,"cmrit",year,sem,dep,sec,rollnumber),{name:user,rollnumber:rollnumber}).then(()=>alert("successfully submitted")).catch((err)=>{console.log(err)})
+       const db1= getDatabase(app);
+       set(ref(db1,"students/"+rollnumber), {
+         username: user,
+         email: Email,"year":year,"semister":sem,"department":dep,"section":sec
+       }); 
        }
     }
     const[year,setYear]=useState("")
@@ -116,7 +121,7 @@ const SignupS=()=>{
                 <input type="submit"></input>
                 <h3>Already have an account?</h3>
 
-                <Btn></Btn>
+                <Btn1></Btn1>
                 
                 
             </form>

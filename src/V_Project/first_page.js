@@ -8,7 +8,7 @@ import Rout from '../login_signup_pages/routing/router'
             <div className='head'>
                
                 <header className='welcome'>
-                    <h1 className='Welcome'>CMRIT  KASHA</h1>
+                    <h1 className='Welcome'>CMRIT  KAKSHA</h1>
                     
                 </header>
                 

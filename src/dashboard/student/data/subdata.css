@@ -1,0 +1,38 @@
+.sub-data:not(#subjects){
+    font-size: 1.2rem;
+    color:black;
+    padding-left:20px;
+    background-color:rgb(245, 245, 245);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+    margin-top: 70px;
+    margin-right: 200px;
+    position:static;
+  
+  }
+  table {
+    
+    border-collapse: collapse;
+    width: 700px;
+    height:500px;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 3px;
+    text-align: left;
+  }
+  td{
+    color:black
+  }
+  .btn:not(.drop1,#login,#signup,#profile,#subject,#subjects){
+    background-color: green;
+      
+      outline: none;
+      font-size: 1.2rem;
+  
+  }
+  .m1,m2{
+    right:10px;
+  }

@@ -1,0 +1,28 @@
+#back:not(#subjects){
+  background-color: whitesmoke;
+  border: 1px solid greenyellow;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.dropdown{
+  left:750px;
+  background-size:contain;
+  
+}
+#back li {
+  color: #eeeeee;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#back li:hover:not(#subject) {
+  color: #1c87c9;
+  background-color: #d8e2f3;
+}
+

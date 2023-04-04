@@ -1,35 +1,39 @@
 import React,{ useState} from 'react';
 import './signup.css';
-import Btn from '../combination_login_signup/login_button';
+import {Btn} from '../combination_login_signup/login_fac';
 import {createUserWithEmailAndPassword} from 'firebase/auth'
-import { initializeApp } from '@firebase/app';
 import {Timestamp} from 'firebase/firestore'
-import Teacher from '../../auth/teacher';
+import app from '../../auth/teacher';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import {doc,setDoc,getDoc } from 'firebase/firestore';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { DropdownButton } from 'react-bootstrap';
-
+import { set,ref,getDatabase} from 'firebase/database';
+import { useNavigate } from 'react-router';
 const SignupF=()=>{
-    var total="a";
+    var navi=useNavigate();
+    
+    let db1=getDatabase(app);
    
     const [data,setData]=useState({
         user:"",Email:"",pass:"",con:""
 
     })
+
     const {user,Email,pass,con}=data;
     const [dep,setDep]=useState("");
     const [year,setYear]=useState("");
     const [sem,setSem]=useState("");
     const [sec,setSec]=useState("");
-
+    const [list, setList] = useState({});
     const handler1=async(e)=>{
         
         setData({...data,[e.target.name]:e.target.value});
 
     }
     const handler2=async(e)=>{
+        e.stopPropagation()
         e.preventDefault();
    
         var a=data.pass;
@@ -43,11 +47,13 @@ const SignupF=()=>{
        
         }
        else{
-            var con1=initializeApp(Teacher);
-            a=getAuth(con1);
-        console.log(total);
-        await createUserWithEmailAndPassword(a,Email,pass).then(user=>{console.log("the teacher data  "+user)}).catch(err=>alert(err));
-       }
+            
+        a=getAuth(app);
+        await createUserWithEmailAndPassword(a,Email,pass).then(user=>{console.log("the teacher data  "+user)}).catch(err=>alert("email or password already in use"));
+
+        await navi("/loginfaculty")
+        console.log(list);   
+    }
 
     }
     
@@ -63,16 +69,17 @@ const SignupF=()=>{
        setDep(e.target.id);
     }
    
-    var con1=initializeApp(Teacher);
-    var db=getFirestore(con1);
+  
+    var db=getFirestore(app);
     const[first,setFirst]=useState("");
     const section=async(e)=>{
         setSec(e.target.id);
         
         var sub=await getDoc(doc(db,"cmrit",year,sem,dep,e.target.id,"subjects"));
+
         setFirst(sub.data());
     }
-    //const [ans,setAns]=useState(first);
+    const [ans,setAns]=useState(first);
     const Reset=(e)=>{
         try{
         document.getElementById(year).checked = false
@@ -84,44 +91,31 @@ const SignupF=()=>{
         setSec(" ")
         setSem(" ")
         setFirst(" ")
-        ans=" "
+        setAns(" ")
        document.getElementById("one").focus();
         
         }
         catch{
             alert("already Resetted")
         }
+        console.log(ans); 
     }
    
    const confirm =async(e)=>{  
-       
+    
+    e.preventDefault();
         console.log(year,' ',dep," ",sec);
        var sub=await getDoc(doc(db,"cmrit",year,sem,dep,sec,"subjects"));
      
        console.log(sub.data());
-
-       const btn=document.getElementById("subject")
-        Object.keys(ans).map((key, index)=>{
-            try{
-            const val=Object.values(ans);
-            const keys=Object.keys(ans);
-            console.log(key+"  "+index);
-            
-             const r=<Dropdown.Item as="button" id={keys.at(index)} value={key} name={user} onClick={addUser}>{val.at(index)}</Dropdown.Item>
-           btn.innerHTML(r);
-           return console.log(key);
-            }
-            catch(err){
-                
-                return console.log(err)
-            }
-        }
-       )
-       //setAns(sub.data());
+      
+       setAns(sub.data());
     
     }    
-    var ans=first;
+    
     const addUser=async(e)=>{
+       
+        e.preventDefault();
         if(year===" " || sem===" "||dep===" "||sec===" "){
             alert("you may not selected year or sem or dep or sec")
             return
@@ -129,15 +123,55 @@ const SignupF=()=>{
         try{
            var exist= await getDoc(doc("cmrit",year,sem,dep,sec,"subjects",e.target.id,e.target.name))
            alert(exist.data());
+
+           await setDoc(doc(db,"cmrit",year,sem,dep,sec,"subjects",e.target.id,e.target.name),{
+            time:Timestamp.now()
+        }).then((data)=>{alert("success")})
+        let ID,Value;
+        ID=e.target.id;Value=e.target.value;
+        setList({ ...list, [ID]: Value});
+        console.log(Value)
+         //console.log(subject);//console.log(VALUE)
+       await  set(ref(db1, 'faculty/'+data.user.split("@")[0]+"/"+e.target.id), {
+         username: user,
+         email: Email,"year":year,"semister":sem,"department":dep,"section":sec
+       }).then((data)=>{
+         alert("faculty data")
+       }).catch((err)=>{
+         alert("sorry error...")
+       }); 
+           
         }
         catch(err){
             await setDoc(doc(db,"cmrit",year,sem,dep,sec,"subjects",e.target.id,e.target.name),{
                 time:Timestamp.now()
             }).then((data)=>{alert("success")})
+           
+             let ID,Value;
+             ID=e.target.id;Value=e.target.value;
+             setList({ ...list, [ID]: Value});
+             console.log("the subject is "+e.target.name)
+           await  set(ref(db1, 'faculty/'+data.Email.split("@")[0]+"/"+e.target.id), {
+             username: user,"subject":e.target.name,
+             email: Email,"year":year,"semister":sem,"department":dep,"section":sec
+           }).then((data)=>{
+             alert("faculty data")
+           }).catch((err)=>{
+             alert("sorry error...")
+           }); 
+        /*   await  set(ref(db1,'faculty/'+data.user.split("@")[0]+"/"+"subject"), {
+            obj:VALUE
+        }).catch((err)=>{
+          alert("sorry error...")
+        }); */
         }
+        
+       
         //if(await getDoc(doc("cmrit",year,sem,dep,sec,"subjects",e.target.id,e.target.name))   
     }
     const AddSubject=(e)=>{
+       
+        e.preventDefault();
         try{
             document.getElementById(year).checked = false
             document.getElementById(sem).checked = false
@@ -148,7 +182,7 @@ const SignupF=()=>{
             setSec(" ")
             setSem(" ")
             setFirst(" ")
-            ans=" "
+            setAns("  ")
            document.getElementById("one").focus(); 
 
         }
@@ -202,13 +236,30 @@ const SignupF=()=>{
                 <input type="radio" value={sec} id="D" name="section" onChange={section}></input><label>D</label><br></br>
                 </div><br></br> <br></br>
                <button onClick={confirm}>confirm</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onClick={Reset}>reset</button><br></br><br></br><br></br>
-                <DropdownButton id="subject" title="Select Subject">
-                    <div id="subjects"></div>
-              
+                <div>
+                <DropdownButton  title="Select Subject" id="subjects">
+                    {
+                       Object.keys(ans).map((key, index)=>{
+                        try{
+                        const val=Object.values(ans);
+                        const keys=Object.keys(ans);
+                        console.log(key+"  "+index);
+                        
+                         return <Dropdown.Item as="button" id={keys.at(index)} value={key} name={ans[key]} onClick={addUser}>{val.at(index)}</Dropdown.Item>
+
+                        }
+                        catch(err){
+                            
+                            return console.log(err)
+                        }
+                    }
+                   )
+                }    
                 </DropdownButton><br></br><br></br>
-                
-                <div className="AddSubject">
+                </div>
+                <div id="add">
                     <button onClick={AddSubject}>AddSubject</button>
+
                 </div><br></br><br></br>
                 <input type="submit"></input>
                 <h3>Already have an account?</h3>
