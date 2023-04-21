@@ -1,4 +1,4 @@
-#back:not(#subjects){
+#back:not(#subjects,#drop2,){
   background-color: whitesmoke;
   border: 1px solid greenyellow;
   border-radius: 5px;
@@ -26,3 +26,7 @@
   background-color: #d8e2f3;
 }
 
+.drop{
+  position: absolute;
+  right: 350px;
+}

@@ -2,19 +2,16 @@ import React from 'react'
 import { useState } from 'react'
 import "./login.css"
 import {getAuth,signInWithEmailAndPassword} from 'firebase/auth'
-//import Tsrtc from '../combination_login_signup/orginal_page_router'
 import { useNavigate } from 'react-router'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import app from '../../auth/teacher'
-
+import Rhome from '../combination_login_signup/realhome/rhome'
 //import Navi from '../routing/rtc_route'
 import 'react-toastify/dist/ReactToastify.css';
 
 const LoginS=()=>{
     const navigate=useNavigate();
     const [data,setData]=useState({user:"",pass:""})
-    
-   
     function hand1(e) {
         setData({ ...data, [e.target.name]: e.target.value });
 
@@ -34,7 +31,8 @@ const LoginS=()=>{
 
 }
     return(
-        
+        <div id="loginspage">
+        <Rhome></Rhome><br></br>
         <div className='center'>
        
             <form onSubmit={hand} action="../../check/orginal_pages/rtc">
@@ -44,6 +42,7 @@ const LoginS=()=>{
                 <input type="password" name="pass" value={data.pass} onChange={hand1} ></input><br></br><br></br>
                 <input id="submit" type="submit"></input>
             </form>
+        </div>
         </div>
     )
 }

@@ -3,11 +3,7 @@ import { Dropdown } from "react-bootstrap";
 import app from "../../../auth/teacher";
 import { getFirestore } from "firebase/firestore";
 import { setDoc, doc, getDoc,updateDoc} from "firebase/firestore";
-
-
-
-import "./upload.css";
-
+import "./upload.css"; 
 const Upload = () => {
   const [showBox, setShowBox] = useState(false);
   const [content, setContent] = useState("");
@@ -124,7 +120,7 @@ const Upload = () => {
   
   
  return (
-    <div>
+    <div id="uploadpage">
       <nav id="n">
         <ul>
           <li>
@@ -132,19 +128,18 @@ const Upload = () => {
               <h2>Home</h2>
             </a>
           </li>
-          <li className="dropdown">
-            <div id="mail">
-              <Dropdown id="prof">
-                <Dropdown.Toggle variant="light" id="profile">
-                  <span>{email.split("@")[0]}</span>
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item>Edit Profile</Dropdown.Item>
-                  <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </div>
-          </li>
+          <li className="dropdown"></li>
+          <div id="mail">
+            <Dropdown id="prof">
+              <Dropdown.Toggle variant="light" id="profile">
+                <span>{email.split("@")[0]}</span>
+              </Dropdown.Toggle>
+              <Dropdown.Menu id="prof-menu">
+                <Dropdown.Item>Edit Profile</Dropdown.Item>
+                <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
         </ul>
       </nav>
       <button id="add" onClick={() => setShowBox(true)}>Add Question</button>
@@ -169,7 +164,7 @@ const Upload = () => {
             
             return(<>
             <br></br>
-            <div id="pdata" style={{border:"solid 1px black",paddingLeft:"30px",width:"95%",marginLeft:"30px",backgroundColor:"pink"}}>
+            <div id="pdata" style={{border:"solid 1px black",paddingLeft:"30px",width:"95%",marginLeft:"30px",backgroundColor:"white"}}>
             <p style={{color:"black",fontSize:"26px"}}><span style={{fontSize:"30px"}}>{i+1}</span>{". "}{data[key]} </p>
             <button onClick={()=>Edit(key)} id="edit">Edit</button>
           <button onClick={()=>Delete(key)} id="delete">Delete</button>

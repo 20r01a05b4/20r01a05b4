@@ -7,10 +7,12 @@ import app from '../../auth/teacher';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import {doc,setDoc,getDoc } from 'firebase/firestore';
-import Dropdown from 'react-bootstrap/Dropdown';
-import { DropdownButton } from 'react-bootstrap';
+
 import { set,ref,getDatabase} from 'firebase/database';
 import { useNavigate } from 'react-router';
+import { DropdownButton, Dropdown } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Rhome from '../combination_login_signup/realhome/rhome';
 const SignupF=()=>{
     var navi=useNavigate();
     
@@ -68,8 +70,7 @@ const SignupF=()=>{
        
        setDep(e.target.id);
     }
-   
-  
+    
     var db=getFirestore(app);
     const[first,setFirst]=useState("");
     const section=async(e)=>{
@@ -192,9 +193,9 @@ const SignupF=()=>{
         }
     }
     return(
-        <div>
-           
-            <form className='signup' onSubmit={handler2}>
+        <div id="signfpage">
+           <Rhome></Rhome><br></br>
+            <form className='signup' id="form-group " onSubmit={handler2}>
                 <h1>Create Account</h1><br></br>
                 <label className='name'>Your name</label><br></br>
                 <input className='in_name' type="text" name="user" value={user} onChange={handler1}></input><br></br><br></br>
@@ -235,33 +236,43 @@ const SignupF=()=>{
                 <input type="radio" value={sec} id="C" name="section" onChange={section}></input><label>C</label><br></br>
                 <input type="radio" value={sec} id="D" name="section" onChange={section}></input><label>D</label><br></br>
                 </div><br></br> <br></br>
-               <button onClick={confirm}>confirm</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onClick={Reset}>reset</button><br></br><br></br><br></br>
+               <button onClick={confirm} id="confirm">confirm</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onClick={Reset} id="reset">reset</button><br></br><br></br><br></br>
                 <div>
-                <DropdownButton  title="Select Subject" id="subjects">
-                    {
-                       Object.keys(ans).map((key, index)=>{
-                        try{
-                        const val=Object.values(ans);
-                        const keys=Object.keys(ans);
-                        console.log(key+"  "+index);
-                        
-                         return <Dropdown.Item as="button" id={keys.at(index)} value={key} name={ans[key]} onClick={addUser}>{val.at(index)}</Dropdown.Item>
-
-                        }
-                        catch(err){
-                            
-                            return console.log(err)
-                        }
-                    }
-                   )
-                }    
-                </DropdownButton><br></br><br></br>
+      <div id="subjdrop">
+      <DropdownButton id="subj" title="Select Subject">
+      
+      {Object.keys(ans).map((key, index) => {
+        try {
+          const val = Object.values(ans);
+          const keys = Object.keys(ans);
+          console.log(key + "  " + index);
+          return (
+            <Dropdown.Item
+              key={keys[index]}
+              as="button"
+              id={keys[index]}
+              value={key}
+              name={ans[key]}
+              onClick={addUser}
+            >
+              {val[index]}
+            </Dropdown.Item>
+          );
+        } catch (err) {
+          return console.log(err);
+        }
+      })}
+    
+    </DropdownButton>
+    </div>
+                <br></br>
+                <br></br><br></br>
                 </div>
-                <div id="add">
-                    <button onClick={AddSubject}>AddSubject</button>
+                <div id="addsubjec">
+                    <button id="addsubject" onClick={AddSubject}>AddSubject</button>
 
                 </div><br></br><br></br>
-                <input type="submit"></input>
+                <input id="sub" type="submit"></input>
                 <h3>Already have an account?</h3>
                 <Btn></Btn>    
             </form>

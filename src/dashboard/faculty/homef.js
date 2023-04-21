@@ -33,11 +33,11 @@ const Dashf = () => {
    // console.log("User is signed in:", email, uid);
 
     return (
-      <div>
-      <nav id="n">
+      <div id="facpage">
+       <nav id="n">
         <ul>
           <li>
-            <a href="/Homes">
+            <a href="/">
               <h2>Home</h2>
             </a>
           </li>
@@ -47,7 +47,7 @@ const Dashf = () => {
               <Dropdown.Toggle variant="light" id="profile">
                 <span>{email.split("@")[0]}</span>
               </Dropdown.Toggle>
-              <Dropdown.Menu>
+              <Dropdown.Menu id="prof-menu">
                 <Dropdown.Item>Edit Profile</Dropdown.Item>
                 <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
               </Dropdown.Menu>

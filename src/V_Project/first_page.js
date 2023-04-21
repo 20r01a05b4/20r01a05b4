@@ -11,14 +11,8 @@ import Rout from '../login_signup_pages/routing/router'
                     <h1 className='Welcome'>CMRIT  KAKSHA</h1>
                     
                 </header>
-                
                <Rout></Rout>
-                
             </div>
-            
-                
-                
-            
         </div>
     )
 }

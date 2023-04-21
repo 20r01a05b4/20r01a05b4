@@ -56,11 +56,11 @@ const FacD = () => {
             const facultyData = dataf[k];
             return (
               <tr key={k}>
-                <td>{facultyData.year}</td>
-                <td>{facultyData.semister}</td>
-                <td>{facultyData.department}</td>
-                <td>{facultyData.section}</td>
-                <td>{facultyData.subject}</td>
+                <td>{<h4>{facultyData.year}</h4>}</td>
+                <td>{<h4>{facultyData.semister}</h4>}</td>
+                <td>{<h3>{facultyData.department}</h3>}</td>
+                <td>{<h3>{facultyData.section}</h3>}</td>
+                <td>{<h4>{facultyData.subject}</h4>}</td>
                 <td className="td" id="mid">
                   <span>
                     <button id="m1" value={k} name={JSON.stringify(facultyData)} onClick={mid1a}>

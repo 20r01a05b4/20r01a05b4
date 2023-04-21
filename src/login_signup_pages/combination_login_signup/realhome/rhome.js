@@ -4,10 +4,10 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useNavigate } from "react-router";
-import "./home.css";
+import "./rhome.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Home1 = () => {
+const Rhome= () => {
   const navigate = useNavigate();
 
   const faculty = () => {
@@ -27,8 +27,8 @@ const Home1 = () => {
   };
 
   return (
-    <div className="page">
-      <Navbar id="navhomme" bg="light" expand="lg">
+    <div id="rpage">
+      <Navbar  expand="lg">
         <Container>
           <Navbar.Brand href="/">{<div id="h">Home</div>}</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -46,17 +46,9 @@ const Home1 = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <div id="hd">
-      <h1>About CMRIT</h1>
-      <p>
-CMR Institute of Technology is one of the best engineering Colleges for aspiring engineering students. It is one of the three colleges established by MGR Educational Society. CMR Institute of Technology was established in 2005 in 10 Acres and built up area of 31132.72 Sq.M. with a single – minded aim to provide a perfect platform to students in the field of Engineering, Technology and Management for their academic and overall personality development. The College has a rich tradition of soaring high with academic excellence & overall personal growth of students. 
-      </p>
-     </div>
-     <div id="logoh">
-      <img id="limg" src="https://th.bing.com/th/id/OIP.v784RYDbIWLazPprYmFmcQHaHa?w=180&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="logoc" ></img>
-     </div>
+     
     </div>
   );
 };
 
-export default Home1;
+export default Rhome;

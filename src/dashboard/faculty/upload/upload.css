@@ -1,54 +1,70 @@
-#body{
-    background-color: aqua;
+/* Global Styles */
+body {
+  background-color: aqua;
 }
-  #add {
-        right:300px;
-    border-radius: 5px;
-    padding: 10px 20px;
-    background-color:grey;
-    color: white;
-    border: none;
-    margin-left:45%;
-    height:70px;
-    margin-top:20px;
-  }
-  
-  #add:hover {
-    background-color: #0062cc;
-    cursor: pointer;
-  }
-  #input1{
-    width:90%;
-    height:200px;
-    height:auto;
-    margin-left:5%;
-    margin-top:3%;
-  }
-  #save{
-    margin-left:86%;
-    border:none;
-    border-radius:5px solid;
-    color:black;
-    font-size: 25px;
-    width:80px;
-    margin-bottom:50px;
-    background-color: rgb(0, 229, 255);
-  }
-  #pdata{
-    border-radius: 4px solid black;
-  }
-  #delete{
-    margin-left:80%;
-    margin-bottom:5px;
-    border:none;
-    border-radius: 5px;
-    font-size: 23px;
-    background-color:crimson;
-  }
 
-#edit{
-  margin-bottom:5px; border:none;
+/* Add Button */
+#add {
+  right: 300px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color: grey;
+  color: white;
+  border: none;
+  margin-left: 45%;
+  height: 70px;
+  margin-top: 20px;
+}
+
+#add:hover {
+  background-color: #0062cc;
+  cursor: pointer;
+}
+
+/* Textarea */
+#input1 {
+  width: 90%;
+  height: 200px;
+  height: auto;
+  margin-left: 5%;
+  margin-top: 3%;
+}
+
+/* Save Button */
+#save {
+  margin-left: 86%;
+  border: none;
+  border-radius: 5px solid;
+  color: black;
+  font-size: 25px;
+  width: 80px;
+  margin-bottom: 50px;
+  background-color: rgb(0, 229, 255);
+}
+
+/* Profile Data */
+#pdata {
+  border-radius: 4px solid black;
+}
+
+/* Delete and Edit Buttons */
+#delete {
+  margin-left: 80%;
+  margin-bottom: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 23px;
+  background-color: crimson;
+}
+
+#edit {
+  margin-bottom: 5px;
+  border: none;
   border-radius: 5px;
   background-color: aquamarine;
   font-size: 23px;
+}
+#uploadpage{
+  background-image:url("https://media.istockphoto.com/id/1336196320/photo/black-luxury-fabric-background-with-copy-space-flowing-satin-waves.jpg?s=612x612&w=0&k=20&c=LIQKXMSOOtS_Jb1ApbrTirpZG3EmcnP6aJYlOWu8uss=");
+  padding-bottom: 150px;
 }

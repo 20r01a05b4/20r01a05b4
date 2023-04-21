@@ -35,7 +35,7 @@ const Mid2 = () => {
   }, []);
 
   return (
-    <div>
+    <div className="mid2page">
       <table >
         <thead>
           <tr>

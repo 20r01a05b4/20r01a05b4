@@ -33,15 +33,12 @@ const Data = () => {
   const assignm1 = (e) => {
     e.preventDefault();
     const v = e.target.value;
-    alert(v);
-    alert("assigning mid1" + v);
     navigate("/Assignment1",{state:{prop:v}});
   };
   
   const assignm2 = (e) => {
     e.preventDefault();
     const v = e.target.value;
-    alert("assigning mid2" + v);
     navigate("/Assignment2",{ state: { prop:v} });
   };
   

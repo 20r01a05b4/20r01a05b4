@@ -8,6 +8,8 @@ import {setDoc,doc} from 'firebase/firestore'
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getDatabase, ref, set } from "firebase/database";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Rhome from '../../combination_login_signup/realhome/rhome';
 const SignupS=()=>{
     
     const [data,setData]=useState({
@@ -75,8 +77,8 @@ const SignupS=()=>{
         setSec(e.target.id);
     }
     return(
-        <div>
-           
+        <div id="signspage">
+           <Rhome></Rhome><br></br>
             <form className='signup' onSubmit={handler2}>
                 <h1>Create Account</h1><br></br>
                 <label className='name'>Your name</label><br></br>

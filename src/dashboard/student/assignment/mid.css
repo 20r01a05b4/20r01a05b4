@@ -1,12 +1,13 @@
 #tm1{
-    background-color: aqua;
+    margin-top:20px;
+   background-image: url("https://img.freepik.com/premium-photo/blue-paper-texture-cardboard-sheet-copy-space_116441-19559.jpg?size=626&ext=jpg&ga=GA1.2.1472393818.1681222262&semt=ais");
     margin-left:85px;
     width:90%;
 }
 #hm1{
     height:50px;
     padding-right: 100px;
-    font-size: 25px;
+    font-size: 30px;
     text-align: center;
 }
 #bm1{
@@ -14,4 +15,17 @@
 }
 #brm1{
     height:auto;
+}
+#mail1{
+    position: relative;
+}
+#drop2 {
+    position: absolute;
+    right: 380px;
+}
+.mid1page,.mid2page{
+    height:120%;  
+    background-size: auto 150%;
+    background-repeat: repeat;
+    background-image: url("https://wallpapercave.com/wp/wp5727267.jpg");
 }

@@ -6,13 +6,10 @@
     border:1px solid grey;
     padding-left: 50px;
     padding-right: 75px;
-    margin-left:350px;
-    margin-left:350px;
-    margin-left:350px;
-    margin-left:350px;
-    background-color:rgba(0, 255, 255, 0.504);
+   margin-left:370px;
+   background-color: lightgray;
+   border-radius: 7px;
    
-    
 }
 h1{
     color:black;
@@ -30,4 +27,65 @@ label{
     border:2px solid black;
     width:auto;
     height:100px;
-}
+} 
+.dropdown:not(#subj) {
+    position: relative;
+  }
+  
+
+  button:focus:not(#subjects) {
+    outline: none;
+  }
+  #addsubject{
+    border-radius:5px;
+    width:130px;
+    height:30px;
+    background-color:lightgrey;
+  }
+  #confirm,#reset{
+    border-radius:5px;
+    width:70px;
+    height:30px;
+    background-color:lightgrey; 
+  }
+  #sub{
+
+    border-radius:5px;
+    width:70px;
+    height:30px;
+    background-color:lightgrey;
+  }
+  #subj{
+  
+   position:relative;
+   right:750px;
+    margin:0;
+    background-color: grey;
+  }
+
+  #subj:hover{
+    background-color:blanchedalmond;
+  }
+ 
+ 
+  #form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  #subject_dropdown{
+    position:static;
+    border:2px solid black;
+    border-radius: 5px;
+    width:120px;
+    background-color: lightgrey;
+    margin-left:10px;
+    
+  }
+  #signspage,#signfpage{
+    height:calc(auto+100px);
+    padding-bottom: 50px;
+    background-image: url("https://wallpapercave.com/wp/wp2533117.png");
+  }
+  
